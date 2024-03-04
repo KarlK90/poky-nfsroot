@@ -56,7 +56,7 @@ class NFSRootUpdateServer():
         prepare_native_tools()
 
         # Set the path for the Unix domain socket
-        socket_path = f"/tmp/nfsup-{os.environ['USER']}-{sock_instance}.sock"
+        socket_path = f"/tmp/nfsup-{os.getuid()}-{sock_instance}.sock"
 
         # Remove the socket file if it already exists
         if os.path.exists(socket_path):
